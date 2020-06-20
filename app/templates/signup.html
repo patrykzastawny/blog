@@ -1,0 +1,45 @@
+﻿{% extends "base.html" %}
+
+{% block content %}
+<div class="column is-4 is-offset-4">
+    <center>
+    <h3 class="title">Rejestracja</h3>
+    <div class="box">
+        <form method="POST" action="/signup">
+            <p><div class="field">
+                <div class="control">
+                    <input class="input is-large" type="email" name="email" placeholder="Email" autofocus="">
+                </div>
+            </div>
+
+            <p><div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" name="name" placeholder="Nazwa użytkownika" autofocus="">
+                </div>
+            </div>
+
+            <p><div class="field">
+                <div class="control">
+                    <input class="input is-large" type="password" name="password" placeholder="Hasło">
+                </div>
+            </div>
+
+
+           <p> <button class="button is-block is-info is-large is-fullwidth">Zarejestruj się</button>
+        </form>
+    </div>
+</div>
+</center>
+
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    <div class="notification is-danger">
+        {{ messages[0] }}. Idź do <a href="{{ url_for('auth.login') }}">strony logowania.</a>.
+    </div>
+{% endif %}
+{% endwith %}
+<form method="POST" action="/signup">
+
+
+{% endblock %}
